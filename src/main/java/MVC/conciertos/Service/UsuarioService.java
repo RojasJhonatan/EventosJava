@@ -60,10 +60,10 @@ public class UsuarioService {
         return false;
     }
 
-    public UsuarioModel autenticarUsuario(String email,String contraseñaPlana){
+    public UsuarioModel autenticarUsuario(String email,String contrasenaPlana){
         UsuarioModel usuario = usuarioRepositorio.findByEmail(email)
         .orElseThrow(()-> new RuntimeException("Usuario NO encontrado"));
-        boolean validacion = passwordEncoder.matches(contraseñaPlana, usuario.getPassword());
+        boolean validacion = passwordEncoder.matches(contrasenaPlana, usuario.getPassword());
         if (!validacion){
             throw new RuntimeException("Contraseña Incorrecta");            
         }
