@@ -5,7 +5,7 @@ export const obtenerEventos = async()=>{
     const respuesta = await fetch(API_URL)
 
     if (!respuesta.ok){
-        throw new Error("Error al obtener eventos");
+        throw new Error("Error al obtener eventos")
     }
     return await respuesta.json()
 } 
@@ -14,8 +14,8 @@ export const obtenerEventos = async()=>{
 export const obtenerEventosPorId = async(id)=>{         
     const respuesta = await fetch(`${API_URL}/${id}`)
 
-        if (!respuesta.ok){
-        throw new Error("Error al obtener el evento");
+    if (!respuesta.ok){
+        throw new Error("Error al obtener el evento")
     }
     return await respuesta.json()
 }
@@ -30,7 +30,7 @@ export const crearEvento = async(evento)=>{
     })
 
     if (!respuesta.ok){
-        throw new Error("Error al crear el evento");
+        throw new Error("Error al crear el evento")
     }
 
     return await respuesta.json()
@@ -47,7 +47,7 @@ export const actualizarEvento = async(id, evento)=>{
     })
     
     if (!respuesta.ok){
-        throw new Error("Error al actualizar el evento");
+        throw new Error("Error al actualizar el evento")
     }
 
     return await respuesta.json()
@@ -60,8 +60,8 @@ export const eliminarEvento = async(id)=>{
     })
 
     if (!respuesta.ok){
-        throw new Error("Error al eliminar el evento");
+        throw new Error("Error al eliminar el evento")
     }
 
-    return await respuesta.json()
+    return true
 }
