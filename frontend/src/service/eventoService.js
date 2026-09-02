@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3030/eventos'
+const API_URL = 'http://localhost:8080/eventos'
 
 //Función para obtener todos los eventos
 export const obtenerEventos = async()=>{            
