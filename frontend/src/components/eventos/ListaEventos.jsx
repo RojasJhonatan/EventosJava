@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { obtenerEventos } from "../../service/eventoService";
+import { obtenerEventos,eliminarEvento } from "../../service/eventoService";
 
 
 function ListaEventos() {
@@ -18,7 +18,7 @@ function ListaEventos() {
         }
     };
 
-    const eliminarEvento = async(id) => {
+    const borrarEvento = async(id) => {
         const confirmar = window.confirm(
                 "Esta seguro de la eliminación"
             );
@@ -27,13 +27,13 @@ function ListaEventos() {
                 return;
             }
         
-        try {
-            await eliminarEvento(id);
-            cargarEventos();
-            
-        } catch (error) {
-            console.error("Error al eliminar el evento",error)
-        }
+            try {
+                await eliminarEvento(id);
+                cargarEventos();
+                
+            } catch (error) {
+                console.error("Error al eliminar el evento",error)
+            }
     }
 
     return (
@@ -59,7 +59,7 @@ function ListaEventos() {
                             </button>
 
                             {/* Boton eliminar*/}
-                            <button onClick ={() => eliminar(evento.id)} >
+                            <button onClick ={() => borrarEvento(evento.id)} >
                                 Eliminar
                             </button>
 

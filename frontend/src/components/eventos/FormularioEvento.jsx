@@ -24,6 +24,13 @@ function FormularioEvento(){
         try {
             const eventoGuardado = await crearEvento(nuevoEvento);
             console.log("Evento creado:",eventoGuardado);
+            setTitulo("");
+            setDescripcion("");
+            setFechaHora("");
+            setLugar("");
+            setCapacidadMax(0);
+            setPrecioBase(0);
+            setEstado("");
         } catch (error) {
             console.error("Error al crear Evento",error)
         }
