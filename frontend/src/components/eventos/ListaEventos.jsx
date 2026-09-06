@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { obtenerEventos,eliminarEvento } from "../../service/eventoService";
+import { useNavigate } from "react-router-dom";
+
 
 
 function ListaEventos() {
     const [eventos, setEventos] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         cargarEventos();
@@ -38,7 +41,13 @@ function ListaEventos() {
 
     return (
         <div>
-            <h1>Lista de eventos</h1>
+            <h1>Gestión de Eventos</h1>
+            <div>
+                <button onClick={() => navigate("eventos/crear")}>
+                    Crear Evento
+                </button>
+            </div>
+            
             {eventos.length === 0 ? (
             <p>No hay eventos disponibles</p>
             ):(
@@ -52,8 +61,7 @@ function ListaEventos() {
                                 <strong>ID:</strong> {evento.id}
                             </p>
                             {/* boton actualizar */}
-                            <button onClick={
-                                ()=> console.log("Actualizar eventos", evento.id)
+                            <button onClick={()=> navigate(`/eventos/editar/${evento.id}`)
                             }>
                                 Actualizar
                             </button>

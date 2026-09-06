@@ -41,7 +41,7 @@ export const actualizarEvento = async(id, evento)=>{
     const respuesta = await fetch(`${API_URL}/${id}`,{
         method:"PUT",
         headers:{
-            "Content-Type":"application.json"
+            "Content-Type":"application/json"
         },
         body:JSON.stringify(evento)
     })
